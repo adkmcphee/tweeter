@@ -1,0 +1,29 @@
+header {
+  display: flex;
+  padding-top: 120px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+  background-color: #00597a;
+  
+}
+
+.avatar{
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  
+  }
+
+h2 {
+  font-weight:lighter
+}
+
+h2 strong {
+  font-weight:bold
+}

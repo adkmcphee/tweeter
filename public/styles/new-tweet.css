@@ -1,0 +1,35 @@
+label{
+  display:flex;
+  
+}
+
+.button-counter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button{
+  display: flex;
+  font-family: 'Bungee', cursive;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  size: 2px
+}
+
+.counter {
+  display:flex;
+  justify-content: flex-end;
+  font-weight: bold;
+}
+
+textarea {
+  width: 100%;
+  border-bottom: solid black;
+  font-size: smaller;
+  /* resize: none; */
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: #f4f1ec;
+}
+
