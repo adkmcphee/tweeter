@@ -6,30 +6,30 @@
 
 $(document).ready(() => {
   //Test/ driver code (temp)
-  const tweetData = [
-    {
-      user: {
-        name: "Newton",
-        avatars: "https://i.imgur.com/73hZDYK.png",
-        handle: "@SirIsaac",
-      },
-      content: {
-        text: "If I have seen further it is by standing on the shoulders of giants",
-      },
-      created_at: 1461116232227,
-    },
-    {
-      user: {
-        name: "Descartes",
-        avatars: "https://i.imgur.com/nlhLi3I.png",
-        handle: "@rd",
-      },
-      content: {
-        text: "Je pense , donc je suis",
-      },
-      created_at: 1461113959088,
-    },
-  ];
+  // const tweetData = [
+  //   {
+  //     user: {
+  //       name: "Newton",
+  //       avatars: "https://i.imgur.com/73hZDYK.png",
+  //       handle: "@SirIsaac",
+  //     },
+  //     content: {
+  //       text: "If I have seen further it is by standing on the shoulders of giants",
+  //     },
+  //     created_at: 1461116232227,
+  //   },
+  //   {
+  //     user: {
+  //       name: "Descartes",
+  //       avatars: "https://i.imgur.com/nlhLi3I.png",
+  //       handle: "@rd",
+  //     },
+  //     content: {
+  //       text: "Je pense , donc je suis",
+  //     },
+  //     created_at: 1461113959088,
+  //   },
+  // ];
 
   const renderTweets = (tweets) => {
     for (const tweet of tweets) {
@@ -38,28 +38,69 @@ $(document).ready(() => {
     }
   };
 
-  const createTweetElement = (tweetData) => {
+  const createTweetElement = (tweet) => {
     const $tweetElement = $(`
-  <article>
-    <header class="tweet-header"> 
-       <div class="left-header">
-         <img src=${tweetData["user"].avatars}><div>${tweetData["user"].name}</div>
-       </div>
-     <div class="username">${tweetData["user"].handle}</div>
-    </header>
-      <div class="tweet-content">
-    ${tweetData["content"].text}
-      </div>
-    <footer class="tweet-footer">
-      <div>${tweetData["created_at"]}</div>
-      <div><i class="fa-solid fa-flag"></i><i class="fa-solid fa-retweet"></i><i class="fa-solid fa-heart"></i></div>
-    </footer>
-  </article>
+      <article>
+        <header class="tweet-header"> 
+          <div class="left-header">
+            <img src=${tweet["user"].avatars}>
+            <div>${tweet["user"].name}</div>
+          </div>
+        <div class="username">
+          ${tweet["user"].handle}
+        </div>
+        </header>
+          <div class="tweet-content">
+            ${tweet["content"].text}
+          </div>
+        <footer class="tweet-footer">
+          <div>${timeago.format(tweet.created_at)}</div>
+          <div>
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </footer>
+      </article>
   
 `);
 
     return $tweetElement;
   };
 
-  renderTweets(tweetData);
+  // renderTweets(tweetData);
+
+  //function to fetch tweets from /tweets
+  const loadTweets = () => {
+    $.ajax({
+      method: "GET",
+      url: "/tweets",
+    }).then((tweets) => {
+      renderTweets(tweets);
+    });
+  };
+
+  //make a GET request to load initial tweets
+  loadTweets();
+
+  // grab the form from the DOM
+  const $form = $("#new-tweet-form");
+
+  //add a submit handler to the form
+  $form.on("submit", (event) => {
+    event.preventDefault();
+    console.log("form has submitted");
+
+    const data = $form.serialize();
+    console.log(data);
+
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: data,
+    }).then(() => {
+      console.log("request has resolved");
+      loadTweets();
+    });
+  });
 });

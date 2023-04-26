@@ -14,9 +14,10 @@ $(document).ready(function() {
 
     if (remainingCharacters < 0) {
       counter.css('color', '#FF0000');
-    };
+    } else{
+      counter.css('color', '#545149')
+    }
 
   });
 
 });
-
