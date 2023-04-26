@@ -1,0 +1,41 @@
+article{
+  margin-top: 40px;
+  border-style: solid;
+  border-color:darkgray;
+ 
+}
+
+.tweet-header {
+  padding: 10px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+}
+
+.username {
+  color: lightgray;
+  /* align-self: flex-end; */
+}
+
+.tweet-content{
+  padding:10px;
+  margin: 15px;
+}
+
+.left-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tweet-footer {
+  margin: 20px;
+  display:flex;
+  justify-content: space-between;
+  border-top: solid darkgray;
+  border-top-width: thin;
+  font-size: smaller;
+  
+}
