@@ -5,32 +5,6 @@
  */
 
 $(document).ready(() => {
-  //Test/ driver code (temp)
-  // const tweetData = [
-  //   {
-  //     user: {
-  //       name: "Newton",
-  //       avatars: "https://i.imgur.com/73hZDYK.png",
-  //       handle: "@SirIsaac",
-  //     },
-  //     content: {
-  //       text: "If I have seen further it is by standing on the shoulders of giants",
-  //     },
-  //     created_at: 1461116232227,
-  //   },
-  //   {
-  //     user: {
-  //       name: "Descartes",
-  //       avatars: "https://i.imgur.com/nlhLi3I.png",
-  //       handle: "@rd",
-  //     },
-  //     content: {
-  //       text: "Je pense , donc je suis",
-  //     },
-  //     created_at: 1461113959088,
-  //   },
-  // ];
-
   const renderTweets = (tweets) => {
     for (const tweet of tweets) {
       const $tweetElement = createTweetElement(tweet);
@@ -68,8 +42,6 @@ $(document).ready(() => {
     return $tweetElement;
   };
 
-  // renderTweets(tweetData);
-
   //function to fetch tweets from /tweets
   const loadTweets = () => {
     $.ajax({
@@ -89,17 +61,26 @@ $(document).ready(() => {
   //add a submit handler to the form
   $form.on("submit", (event) => {
     event.preventDefault();
-    console.log("form has submitted");
-
+    const maxCharacters = 140;
     const data = $form.serialize();
-    console.log(data);
+    const tweetText = $form.find("#tweetForm").val();
+
+    if (!tweetText) {
+      alert("Error: Please provide some content.");
+      return;
+    }
+
+    if (tweetText.length > maxCharacters) {
+      alert("Error: Too many characters.");
+      return;
+    }
 
     $.ajax({
       method: "POST",
       url: "/tweets",
       data: data,
     }).then(() => {
-      console.log("request has resolved");
+      $("#tweetForm").val('')
       loadTweets();
     });
   });
