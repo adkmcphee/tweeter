@@ -11,10 +11,11 @@ nav {
   position: fixed;
 }
 
-span{
-align-items: stretch;
+span {
+  align-items: stretch;
 
 }
+
 .rightSide {
   font-family: 'Source Sans Pro', sans-serif;
   display: flex;
