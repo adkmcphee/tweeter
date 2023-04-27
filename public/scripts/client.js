@@ -72,12 +72,12 @@ $(document).ready(() => {
     const tweetText = $form.find("#tweetForm").val();
 
     if (!tweetText) {
-      alert("Error: Please provide some content.");
+      $("#error-message").text("Please fill in the form below.").slideDown();
       return;
     }
 
     if (tweetText.length > maxCharacters) {
-      alert("Error: Too many characters.");
+      $("#error-message").text("Your tweet exceeds the maximum number of characters").slideDown();
       return;
     }
 
@@ -87,6 +87,7 @@ $(document).ready(() => {
       data: data,
     }).then(() => {
       $("#tweetForm").val("");
+      $("#error-message").slideUp();
       loadTweets();
     });
   });
