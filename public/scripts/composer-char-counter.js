@@ -3,8 +3,7 @@ $(document).ready(function() {
 
   const tweetForm = document.getElementById('tweetForm');
   const maxCharacters = 140;
-  console.log(maxCharacters);
-
+  
 
   $('#tweetForm').on('input', function() {
     const totalCharacters = $(this).val().length;
