@@ -26,5 +26,3 @@ You can see snippets of the application in the screenshots below.
 - md5
 - Chance
 
-## Setup
-## Directions
