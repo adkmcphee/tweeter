@@ -14,7 +14,7 @@ You can see snippets of the application in the screenshots below.
 
 !['Screenshot of desktop version of application.](https://github.com/adkmcphee/tweeter/blob/master/docs/Tweeter-Page.png?raw=true)
 !['Screenshot of mobile/tablet version of application.](https://github.com/adkmcphee/tweeter/blob/master/docs/Tweeter-Mobile%20and%20Tablet.png?raw=true)
-!['Screenshot of example error of tweet that is too long.'](https://github.com/adkmcphee/tweeter/blob/master/docs/Tweeter-Keep%20It%20Short.png?raw=true)
+!['Screenshot of example error of tweet that is too long.'](https://github.com/adkmcphee/tweeter/blob/152c481a5fc4be5cd12542ee1edae6096f7a82e9/docs/Tweeter-Keep%20It%20Short.png?raw=true)
 
 
 
