@@ -12,23 +12,29 @@ $(document).ready(() => {
     }
   };
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = (tweet) => {
     const $tweetElement = $(`
       <article>
         <header class="tweet-header"> 
           <div class="left-header">
-            <img src=${tweet["user"].avatars}>
-            <div>${tweet["user"].name}</div>
+            <img src=${escape(tweet["user"].avatars)}>
+            <div>${escape(tweet["user"].name)}</div>
           </div>
         <div class="username">
-          ${tweet["user"].handle}
+          ${escape(tweet["user"].handle)}
         </div>
         </header>
           <div class="tweet-content">
-            ${tweet["content"].text}
+            ${escape(tweet["content"].text)}
           </div>
         <footer class="tweet-footer">
-          <div>${timeago.format(tweet.created_at)}</div>
+          <div>${escape(timeago.format(tweet.created_at))}</div>
           <div>
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
@@ -80,7 +86,7 @@ $(document).ready(() => {
       url: "/tweets",
       data: data,
     }).then(() => {
-      $("#tweetForm").val('')
+      $("#tweetForm").val("");
       loadTweets();
     });
   });
