@@ -1,8 +1,7 @@
-article{
+article {
   margin-top: 40px;
   border-style: solid;
-  border-color:darkgray;
- 
+  border-color: darkgray;
 }
 
 article:hover {
@@ -12,16 +11,15 @@ article:hover {
 .fa-solid.fa-flag:hover,
 .fa-solid.fa-retweet:hover,
 .fa-solid.fa-heart:hover {
-  color: #E1C16E;
+  color: #e1c16e;
 }
 
 .tweet-header {
   padding: 10px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-
 }
 
 .username {
@@ -29,12 +27,12 @@ article:hover {
   /* align-self: flex-end; */
 }
 
-.tweet-content{
-  padding:10px;
+.tweet-content {
+  padding: 10px;
   margin: 15px;
 }
 
-.left-header{
+.left-header {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -42,10 +40,9 @@ article:hover {
 
 .tweet-footer {
   margin: 20px;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   border-top: solid darkgray;
   border-top-width: thin;
   font-size: smaller;
-  
 }
